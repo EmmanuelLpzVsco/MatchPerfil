@@ -1,0 +1,10 @@
+{
+  "name": "profile-matcher-manager",
+  "version": "1.0.0",
+  "description": "Microservice for Management Profiles, clients, catalogs and projects",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "serverless-python-requirements": "^2.4.1"
+  }
+}

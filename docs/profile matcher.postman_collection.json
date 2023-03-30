@@ -1,0 +1,634 @@
+{
+	"variables": [],
+	"info": {
+		"name": "profile matcher",
+		"_postman_id": "b3ac01fd-21bf-4c38-4a73-a853ad5d8de5",
+		"description": "# Introduction\nWhat does your API do?\n\n# Overview\nThings that the developers should know about\n\n# Authentication\nWhat is the preferred way of using the API?\n\n# Error Codes\nWhat errors and status codes can a user expect?\n\n# Rate limit\nIs there a limit to the number of requests an user can send?",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "profile",
+			"description": "",
+			"item": [
+				{
+					"name": "jobs",
+					"description": "",
+					"item": [
+						{
+							"name": "post add job",
+							"request": {
+								"url": "{{protocol}}://{{profile-matcher-host}}/{{env}}/v1/profiles/e36c6ed4-74ab-11eb-9439-0242ac130002/jobs",
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"company\":\"Enova S.A de C.V.55555\",\n    \"position\":\"Software architect JR\",\n    \"department\":\"Software development\",\n    \"entryMonth\":7,\n    \"exitMonth\":12,\n    \"entryYear\":2014,\n    \"exitYear\":2019,\n    \"achievements\":[\n        \"primer logro\",\n        \"segundo logro\",\n        \"tercer logro\"\n    ]\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "delete remove job",
+							"request": {
+								"url": "{{protocol}}://{{profile-matcher-host}}/{{env}}/v1/profiles/e36c6ed4-74ab-11eb-9439-0242ac130002/jobs/f72e082e-77cb-11eb-8a4d-0242ac140003",
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"company\":\"Enova S.A de C.V.\",\n    \"position\":\"Software architect JR\",\n    \"department\":\"Software development\",\n    \"entryMonth\":7,\n    \"exitMonth\":12,\n    \"entryYear\":2014,\n    \"exitYear\":2019,\n    \"achievements\":[\n        \"primer logro\",\n        \"segundo logro\",\n        \"tercer logro\"\n    ]\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "post add job2 tmp",
+							"request": {
+								"url": "{{protocol}}://{{profile-matcher-host}}/{{env}}/v1/profiles/e36c6ed4-74ab-11eb-9439-0242ac130002/jobs",
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"company\":\"Enova S.A de C.V.55555\",\n    \"position\":\"Software architect JR\",\n    \"department\":\"Software development\",\n    \"entryMonth\":7,\n    \"exitMonth\":12,\n    \"entryYear\":2014,\n    \"exitYear\":2019,\n    \"achievements\":[\n        \"primer logroX\",\n        \"segundo logroY\",\n        \"tercer logroZ\"\n    ]\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "studies",
+					"description": "",
+					"item": [
+						{
+							"name": "post add study",
+							"request": {
+								"url": "{{protocol}}://{{profile-matcher-host}}/{{env}}/v1/profiles/e36c6ed4-74ab-11eb-9439-0242ac130002/schools",
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"degree\":\"Universidad\",\n    \"school\":\"Escuela Superior de Cómputo Escom\",\n    \"entryMonth\":7,\n    \"exitMonth\":12,\n    \"entryYear\":2014,\n    \"exitYear\":2019\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "delete remove study",
+							"request": {
+								"url": "{{protocol}}://{{profile-matcher-host}}/{{env}}/v1/profiles/e36c6ed4-74ab-11eb-9439-0242ac130002/schools/e0ee0762-7979-11eb-8e2e-0242c0a83004",
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "programmingLanguages",
+					"description": "",
+					"item": [
+						{
+							"name": "post add programming language",
+							"request": {
+								"url": "{{protocol}}://{{profile-matcher-host}}/{{env}}/v1/profiles/e36c6ed4-74ab-11eb-9439-0242ac130002/programmingLanguages",
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"programmingLanguageId\": \"LUA\",\n  \"experienceInYears\": 5\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "delete remove programming language",
+							"request": {
+								"url": "{{protocol}}://{{profile-matcher-host}}/{{env}}/v1/profiles/e36c6ed4-74ab-11eb-9439-0242ac130002/programmingLanguages/LUA",
+								"method": "DELETE",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "courses",
+					"description": "",
+					"item": [
+						{
+							"name": "post add course",
+							"request": {
+								"url": "{{protocol}}://{{profile-matcher-host}}/{{env}}/v1/profiles/e36c6ed4-74ab-11eb-9439-0242ac130002/courses",
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"courseId\":\"SCRUM\",\n    \"institution\":\"SCRUM ACADEMY\",\n    \"date\":\"2019-02-12\"\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "delete remove course",
+							"request": {
+								"url": "{{protocol}}://{{profile-matcher-host}}/{{env}}/v1/profiles/e36c6ed4-74ab-11eb-9439-0242ac130002/courses/SCRUM",
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "certifications",
+					"description": "",
+					"item": [
+						{
+							"name": "post certifications",
+							"request": {
+								"url": "{{protocol}}://{{profile-matcher-host}}/{{env}}/v1/profiles/25aa596e-74ac-11eb-9439-0242ac130002/certifications",
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"certificationId\": \"JAVA-CERTIFICATION\",\n  \"folio\": \"12345678\",\n  \"institution\": \"Java Asociation\",\n  \"validUntil\": \"2021-09-25\"\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "tools",
+					"description": "",
+					"item": [
+						{
+							"name": "post tools",
+							"request": {
+								"url": "{{protocol}}://{{profile-matcher-host}}/{{env}}/v1/profiles/25aa596e-74ac-11eb-9439-0242ac130002/tools",
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"toolId\": \"VAGRANT\", \n\t\"experienceInYears\": 5\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "delete tools",
+							"request": {
+								"url": "{{protocol}}://{{profile-matcher-host}}/{{env}}/v1/profiles/e36c6ed4-74ab-11eb-9439-0242ac130002/tools/VAGRANT",
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "frameworks",
+					"description": "",
+					"item": [
+						{
+							"name": "delete frameworks",
+							"request": {
+								"url": "{{protocol}}://{{profile-matcher-host}}/{{env}}/v1/profiles/e36c6ed4-74ab-11eb-9439-0242ac130002/frameworks/SYMFONY",
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "post frameworks",
+							"request": {
+								"url": "{{protocol}}://{{profile-matcher-host}}/{{env}}/v1/profiles/e36c6ed4-74ab-11eb-9439-0242ac130002/frameworks",
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"frameworkId\": \"SYMFONY\",\n    \"experienceInYears\": 4\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "post profile",
+					"request": {
+						"url": "{{protocol}}://{{profile-matcher-host}}/{{env}}/v1/profiles",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"Jose Alejandro\",\n  \"lastName\": \"Salvador Ruiz\",\n  \"email\": \"escuelaale5@gmail.com\",\n  \"curp\": \"MORR890908HDFNZB02\",\n  \"rfc\": \"MORR890908DT4\",\n  \"extNumber\": 1,\n  \"intNumber\": 23,\n  \"gender\": \"H\",\n  \"street\": \"Don Pascuale\",\n  \"birthDay\": \"2018-06-29 08:15:27.243860\",\n  \"zipCode\": 13201\n}"
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "get profiles",
+					"request": {
+						"url": "{{protocol}}://{{profile-matcher-host}}/{{env}}/v1/profiles",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "get profile by id",
+					"request": {
+						"url": "{{protocol}}://{{profile-matcher-host}}/{{env}}/v1/profiles/f7c41780-730f-11eb-b917-0242ac140004",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "delete profile",
+					"request": {
+						"url": "{{protocol}}://{{profile-matcher-host}}/{{env}}/v1/profiles/1de8433a-7312-11eb-9c1b-0242ac150004",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "put profile",
+					"request": {
+						"url": "{{protocol}}://{{profile-matcher-host}}/{{env}}/v1/profiles/1e0b8e94-7312-11eb-9c1b-0242ac150004",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"extNumber\": \"6\",\n    \"firstName\": \"Roberto Leroy6\",\n    \"gender\": \"H\",\n    \"lastName\": \"Monroy Ruiz6\",\n    \"birthDay\": \"1992-12-25T00:00:00.000000+0000\"\n}"
+						},
+						"description": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "catalogs",
+			"description": "",
+			"item": [
+				{
+					"name": "programming languages",
+					"description": "",
+					"item": [
+						{
+							"name": "get programming languages",
+							"request": {
+								"url": "{{protocol}}://{{profile-matcher-host}}/{{env}}/v1/catalogs/programmingLanguages",
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": null
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "frameworks",
+					"description": "",
+					"item": [
+						{
+							"name": "get frameworks",
+							"request": {
+								"url": "{{protocol}}://{{profile-matcher-host}}/{{env}}/v1/catalogs/frameworks",
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": null
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "courses",
+					"description": "",
+					"item": [
+						{
+							"name": "get courses",
+							"request": {
+								"url": "{{protocol}}://{{profile-matcher-host}}/{{env}}/v1/catalogs/courses",
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "tools",
+					"description": "",
+					"item": [
+						{
+							"name": "get tools",
+							"request": {
+								"url": "{{protocol}}://{{profile-matcher-host}}/{{env}}/v1/catalogs/tools",
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "certifications",
+					"description": "",
+					"item": [
+						{
+							"name": "get certifications",
+							"request": {
+								"url": "{{protocol}}://{{profile-matcher-host}}/{{env}}/v1/catalogs/certifications",
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "client",
+			"description": "",
+			"item": [
+				{
+					"name": "projects",
+					"description": "",
+					"item": [
+						{
+							"name": "get project by id",
+							"request": {
+								"url": "{{protocol}}://{{profile-matcher-host}}/{{env}}/v1/clients/f62fd2e5-b329-4330-aa52-f676d0b9a887/projects/05d5895c-d7ea-416d-86a1-70a19ff76e74",
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "post project",
+							"request": {
+								"url": "{{protocol}}://{{profile-matcher-host}}/{{env}}/v1/clients/4d606f1c-dc4d-4307-ae11-1db0d47e0017/projects",
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{            \n\t\"name\":\"Project1\",\n    \"responsable\": \"Roberto Leroy Monroy Ruiz\",\n    \"contactPhone\": \"555555555\",\n    \"contactEmail\": \"roberto@gmail.com\",\n    \"cost\": 500000,\n    \"beginDate\": \"2021-05-19\",\n    \"endDate\": \"2022-05-19\"\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "get projects",
+							"request": {
+								"url": "{{protocol}}://{{profile-matcher-host}}/{{env}}/v1/clients/f62fd2e5-b329-4330-aa52-f676d0b9a887/projects",
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "delete project by id",
+							"request": {
+								"url": "{{protocol}}://{{profile-matcher-host}}/{{env}}/v1/clients/f62fd2e5-b329-4330-aa52-f676d0b9a887/projects/05d5895c-d7ea-416d-86a1-70a19ff76e74",
+								"method": "DELETE",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "get clients",
+					"request": {
+						"url": "{{protocol}}://{{profile-matcher-host}}/{{env}}/v1/clients",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get client by id",
+					"request": {
+						"url": "{{protocol}}://{{profile-matcher-host}}/{{env}}/v1/clients/4d606f1c-dc4d-4307-ae11-1db0d47e0017",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "post clients",
+					"request": {
+						"url": "{{protocol}}://{{profile-matcher-host}}/{{env}}/v1/clients",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"company\": \"bibi\",\n        \"contactEmail\": \"email@gmail.com\",\n        \"extNumber\": 2,\n        \"intNumber\": 92,\n        \"phone\": \"5544332211\",\n        \"rfc\": \"ABC34234231332\",\n        \"street\": \"Lombardos\",\n        \"zipCode\": \"12345\"\n    }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "delete client",
+					"request": {
+						"url": "{{protocol}}://{{profile-matcher-host}}/{{env}}/v1/clients/05d5895c-d7ea-416d-86a1-70a19ff76e74",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

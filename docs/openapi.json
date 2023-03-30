@@ -1,0 +1,2139 @@
+{
+  "definitions": {
+    "CertificationResponse": {
+      "properties": {
+        "createdAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "isSoftware": {
+          "type": "boolean"
+        },
+        "key": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "programmingLanguageId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "createdAt",
+        "description",
+        "isSoftware",
+        "key",
+        "name",
+        "programmingLanguageId"
+      ],
+      "type": "object"
+    },
+    "ClientPostRequest": {
+      "properties": {
+        "company": {
+          "type": "string"
+        },
+        "contactEmail": {
+          "format": "email",
+          "type": "string"
+        },
+        "extNumber": {
+          "type": "integer"
+        },
+        "intNumber": {
+          "type": "integer"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "rfc": {
+          "type": "string"
+        },
+        "street": {
+          "type": "string"
+        },
+        "zipCode": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "company",
+        "contactEmail",
+        "extNumber",
+        "intNumber",
+        "phone",
+        "rfc",
+        "street",
+        "zipCode"
+      ],
+      "type": "object"
+    },
+    "ClientResponse": {
+      "properties": {
+        "company": {
+          "type": "string"
+        },
+        "contactEmail": {
+          "format": "email",
+          "type": "string"
+        },
+        "createdAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "extNumber": {
+          "type": "integer"
+        },
+        "id": {
+          "type": "string"
+        },
+        "intNumber": {
+          "type": "integer"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "projects": {
+          "items": {
+            "$ref": "#/definitions/ProjectResponse"
+          },
+          "type": "array"
+        },
+        "rfc": {
+          "type": "string"
+        },
+        "street": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "zipCode": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "company",
+        "contactEmail",
+        "createdAt",
+        "extNumber",
+        "id",
+        "intNumber",
+        "phone",
+        "projects",
+        "rfc",
+        "street",
+        "updatedAt",
+        "zipCode"
+      ],
+      "type": "object"
+    },
+    "ClientUpdateRequest": {
+      "properties": {
+        "company": {
+          "type": "string"
+        },
+        "contactEmail": {
+          "format": "email",
+          "type": "string"
+        },
+        "extNumber": {
+          "type": "integer"
+        },
+        "intNumber": {
+          "type": "integer"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "rfc": {
+          "type": "string"
+        },
+        "street": {
+          "type": "string"
+        },
+        "zipCode": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "CourseResponse": {
+      "properties": {
+        "createdAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "createdAt",
+        "description",
+        "key",
+        "name"
+      ],
+      "type": "object"
+    },
+    "FrameworkResponse": {
+      "properties": {
+        "createdAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "isSoftware": {
+          "type": "boolean"
+        },
+        "key": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "programmingLanguageId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "createdAt",
+        "description",
+        "isSoftware",
+        "key",
+        "name",
+        "programmingLanguageId"
+      ],
+      "type": "object"
+    },
+    "ProfileAchievementResponse": {
+      "properties": {
+        "achievement": {
+          "type": "string"
+        },
+        "createdAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "achievement",
+        "createdAt",
+        "id",
+        "updatedAt"
+      ],
+      "type": "object"
+    },
+    "ProfileCertificationPostRequest": {
+      "properties": {
+        "certificationId": {
+          "type": "string"
+        },
+        "folio": {
+          "type": "string"
+        },
+        "institution": {
+          "type": "string"
+        },
+        "validUntil": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "certificationId",
+        "folio",
+        "institution",
+        "validUntil"
+      ],
+      "type": "object"
+    },
+    "ProfileCertificationResponse": {
+      "properties": {
+        "certificationId": {
+          "type": "string"
+        },
+        "createdAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "folio": {
+          "type": "string"
+        },
+        "institution": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "validUntil": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "certificationId",
+        "createdAt",
+        "folio",
+        "institution",
+        "updatedAt",
+        "validUntil"
+      ],
+      "type": "object"
+    },
+    "ProfileCoursePostRequest": {
+      "properties": {
+        "courseId": {
+          "type": "string"
+        },
+        "date": {
+          "format": "date",
+          "type": "string"
+        },
+        "institution": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "courseId",
+        "date",
+        "institution"
+      ],
+      "type": "object"
+    },
+    "ProfileCourseResponse": {
+      "properties": {
+        "courseId": {
+          "type": "string"
+        },
+        "createdAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "date": {
+          "format": "date",
+          "type": "string"
+        },
+        "institution": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "courseId",
+        "createdAt",
+        "date",
+        "institution",
+        "updatedAt"
+      ],
+      "type": "object"
+    },
+    "ProfileFrameworkPostRequest": {
+      "properties": {
+        "experienceInYears": {
+          "type": "integer"
+        },
+        "frameworkId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "experienceInYears",
+        "frameworkId"
+      ],
+      "type": "object"
+    },
+    "ProfileFrameworkResponse": {
+      "properties": {
+        "createdAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "experienceInYears": {
+          "type": "integer"
+        },
+        "frameworkId": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "createdAt",
+        "experienceInYears",
+        "frameworkId",
+        "updatedAt"
+      ],
+      "type": "object"
+    },
+    "ProfileJobPostRequest": {
+      "properties": {
+        "achievements": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "company": {
+          "type": "string"
+        },
+        "department": {
+          "type": "string"
+        },
+        "entryMonth": {
+          "type": "integer"
+        },
+        "entryYear": {
+          "type": "integer"
+        },
+        "exitMonth": {
+          "type": "integer"
+        },
+        "exitYear": {
+          "type": "integer"
+        },
+        "position": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "achievements",
+        "company",
+        "department",
+        "entryMonth",
+        "entryYear",
+        "exitMonth",
+        "exitYear",
+        "position"
+      ],
+      "type": "object"
+    },
+    "ProfileJobResponse": {
+      "properties": {
+        "achievements": {
+          "items": {
+            "$ref": "#/definitions/ProfileAchievementResponse"
+          },
+          "type": "array"
+        },
+        "company": {
+          "type": "string"
+        },
+        "createdAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "department": {
+          "type": "string"
+        },
+        "entryMonth": {
+          "type": "integer"
+        },
+        "entryYear": {
+          "type": "integer"
+        },
+        "exitMonth": {
+          "type": "integer"
+        },
+        "exitYear": {
+          "type": "integer"
+        },
+        "id": {
+          "type": "string"
+        },
+        "position": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "achievements",
+        "company",
+        "createdAt",
+        "department",
+        "entryMonth",
+        "entryYear",
+        "exitMonth",
+        "exitYear",
+        "id",
+        "position",
+        "updatedAt"
+      ],
+      "type": "object"
+    },
+    "ProfilePostRequest": {
+      "properties": {
+        "birthDay": {
+          "format": "date",
+          "type": "string"
+        },
+        "curp": {
+          "type": "string"
+        },
+        "email": {
+          "format": "email",
+          "type": "string"
+        },
+        "extNumber": {
+          "type": "integer"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "gender": {
+          "enum": [
+            "H",
+            "M"
+          ],
+          "type": "string"
+        },
+        "intNumber": {
+          "type": "integer"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "rfc": {
+          "type": "string"
+        },
+        "street": {
+          "type": "string"
+        },
+        "zipCode": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "birthDay",
+        "curp",
+        "email",
+        "extNumber",
+        "firstName",
+        "intNumber",
+        "lastName",
+        "rfc",
+        "street",
+        "zipCode"
+      ],
+      "type": "object"
+    },
+    "ProfileProgrammingLanguagePostRequest": {
+      "properties": {
+        "experienceInYears": {
+          "type": "integer"
+        },
+        "programmingLanguageId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "experienceInYears",
+        "programmingLanguageId"
+      ],
+      "type": "object"
+    },
+    "ProfileProgrammingLanguageResponse": {
+      "properties": {
+        "createdAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "experienceInYears": {
+          "type": "integer"
+        },
+        "programmingLanguageId": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "createdAt",
+        "experienceInYears",
+        "programmingLanguageId",
+        "updatedAt"
+      ],
+      "type": "object"
+    },
+    "ProfileResponse": {
+      "properties": {
+        "birthDay": {
+          "format": "date",
+          "type": "string"
+        },
+        "certifications": {
+          "items": {
+            "$ref": "#/definitions/ProfileCertificationResponse"
+          },
+          "type": "array"
+        },
+        "courses": {
+          "items": {
+            "$ref": "#/definitions/ProfileCourseResponse"
+          },
+          "type": "array"
+        },
+        "createdAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "curp": {
+          "type": "string"
+        },
+        "email": {
+          "format": "email",
+          "type": "string"
+        },
+        "extNumber": {
+          "type": "integer"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "frameworks": {
+          "items": {
+            "$ref": "#/definitions/ProfileFrameworkResponse"
+          },
+          "type": "array"
+        },
+        "gender": {
+          "enum": [
+            "H",
+            "M"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "intNumber": {
+          "type": "integer"
+        },
+        "jobs": {
+          "items": {
+            "$ref": "#/definitions/ProfileJobResponse"
+          },
+          "type": "array"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "programmingLanguages": {
+          "items": {
+            "$ref": "#/definitions/ProfileProgrammingLanguageResponse"
+          },
+          "type": "array"
+        },
+        "rfc": {
+          "type": "string"
+        },
+        "street": {
+          "type": "string"
+        },
+        "tools": {
+          "items": {
+            "$ref": "#/definitions/ProfileToolResponse"
+          },
+          "type": "array"
+        },
+        "updatedAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "zipCode": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "birthDay",
+        "createdAt",
+        "curp",
+        "email",
+        "extNumber",
+        "firstName",
+        "gender",
+        "id",
+        "intNumber",
+        "lastName",
+        "rfc",
+        "street",
+        "updatedAt",
+        "zipCode"
+      ],
+      "type": "object"
+    },
+    "ProfileStudyLevelPostRequest": {
+      "properties": {
+        "degree": {
+          "enum": [
+            "High School",
+            "Associate's Degree",
+            "Bachelor's Degree",
+            "Master's Degree",
+            "Master of Business Administration (M.B.A)",
+            "Juris Doctor (J.D)",
+            "Engineer's Degree"
+          ],
+          "type": "string"
+        },
+        "entryMonth": {
+          "type": "integer"
+        },
+        "entryYear": {
+          "type": "integer"
+        },
+        "exitMonth": {
+          "type": "integer"
+        },
+        "exitYear": {
+          "type": "integer"
+        },
+        "school": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "degree",
+        "entryMonth",
+        "entryYear",
+        "exitMonth",
+        "exitYear",
+        "school"
+      ],
+      "type": "object"
+    },
+    "ProfileStudyLevelResponse": {
+      "properties": {
+        "createdAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "degree": {
+          "enum": [
+            "High School",
+            "Associate's Degree",
+            "Bachelor's Degree",
+            "Master's Degree",
+            "Master of Business Administration (M.B.A)",
+            "Juris Doctor (J.D)",
+            "Engineer's Degree"
+          ],
+          "type": "string"
+        },
+        "entryMonth": {
+          "type": "integer"
+        },
+        "entryYear": {
+          "type": "integer"
+        },
+        "exitMonth": {
+          "type": "integer"
+        },
+        "exitYear": {
+          "type": "integer"
+        },
+        "id": {
+          "type": "string"
+        },
+        "school": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "createdAt",
+        "degree",
+        "entryMonth",
+        "entryYear",
+        "exitMonth",
+        "exitYear",
+        "id",
+        "school",
+        "updatedAt"
+      ],
+      "type": "object"
+    },
+    "ProfileToolPostRequest": {
+      "properties": {
+        "experienceInYears": {
+          "type": "integer"
+        },
+        "toolId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "experienceInYears",
+        "toolId"
+      ],
+      "type": "object"
+    },
+    "ProfileToolResponse": {
+      "properties": {
+        "createdAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "experienceInYears": {
+          "type": "integer"
+        },
+        "toolId": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "createdAt",
+        "experienceInYears",
+        "toolId",
+        "updatedAt"
+      ],
+      "type": "object"
+    },
+    "ProfileUpdateRequest": {
+      "properties": {
+        "birthDay": {
+          "format": "date",
+          "type": "string"
+        },
+        "curp": {
+          "type": "string"
+        },
+        "email": {
+          "format": "email",
+          "type": "string"
+        },
+        "extNumber": {
+          "type": "integer"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "gender": {
+          "enum": [
+            "H",
+            "M"
+          ],
+          "type": "string"
+        },
+        "intNumber": {
+          "type": "integer"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "rfc": {
+          "type": "string"
+        },
+        "street": {
+          "type": "string"
+        },
+        "zipCode": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ProgrammingLanguageResponse": {
+      "properties": {
+        "createdAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "createdAt",
+        "description",
+        "key",
+        "name"
+      ],
+      "type": "object"
+    },
+    "ProjectPostRequest": {
+      "properties": {
+        "beginDate": {
+          "format": "date",
+          "type": "string"
+        },
+        "contactEmail": {
+          "format": "email",
+          "type": "string"
+        },
+        "contactPhone": {
+          "type": "string"
+        },
+        "cost": {
+          "type": "number"
+        },
+        "endDate": {
+          "format": "date",
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "beginDate",
+        "contactEmail",
+        "contactPhone",
+        "cost",
+        "endDate",
+        "name",
+        "owner"
+      ],
+      "type": "object"
+    },
+    "ProjectResponse": {
+      "properties": {
+        "beginDate": {
+          "format": "date",
+          "type": "string"
+        },
+        "contactEmail": {
+          "format": "email",
+          "type": "string"
+        },
+        "contactPhone": {
+          "type": "string"
+        },
+        "cost": {
+          "type": "number"
+        },
+        "createdAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "endDate": {
+          "format": "date",
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "beginDate",
+        "contactEmail",
+        "contactPhone",
+        "cost",
+        "createdAt",
+        "endDate",
+        "id",
+        "name",
+        "owner",
+        "updatedAt"
+      ],
+      "type": "object"
+    },
+    "ProjectUpdateRequest": {
+      "properties": {
+        "beginDate": {
+          "format": "date",
+          "type": "string"
+        },
+        "contactEmail": {
+          "format": "email",
+          "type": "string"
+        },
+        "contactPhone": {
+          "type": "string"
+        },
+        "cost": {
+          "type": "number"
+        },
+        "endDate": {
+          "format": "date",
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ToolResponse": {
+      "properties": {
+        "createdAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "createdAt",
+        "description",
+        "key",
+        "name"
+      ],
+      "type": "object"
+    }
+  },
+  "description": "API from Profile Matcher",
+  "info": {
+    "title": "ProfileMatcher",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/manager/v1/catalogs/certifications": {
+      "get": {
+        "description": "Get certifications",
+        "parameters": [
+          
+        ],
+        "responses": {
+          "200": {
+            "description": "The certifications stored",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/CertificationResponse"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "tags": [
+          "Catalog"
+        ]
+      }
+    },
+    "/manager/v1/catalogs/courses": {
+      "get": {
+        "description": "Get courses",
+        "parameters": [
+          
+        ],
+        "responses": {
+          "200": {
+            "description": "The courses stored",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/CourseResponse"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "tags": [
+          "Catalog"
+        ]
+      }
+    },
+    "/manager/v1/catalogs/frameworks": {
+      "get": {
+        "description": "Get frameworks",
+        "parameters": [
+          
+        ],
+        "responses": {
+          "200": {
+            "description": "The frameworks stored",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/FrameworkResponse"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "tags": [
+          "Catalog"
+        ]
+      }
+    },
+    "/manager/v1/catalogs/programmingLanguages": {
+      "get": {
+        "description": "Get programming languages",
+        "parameters": [
+          
+        ],
+        "responses": {
+          "200": {
+            "description": "The programming languages stored",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/ProgrammingLanguageResponse"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "tags": [
+          "Catalog"
+        ]
+      }
+    },
+    "/manager/v1/catalogs/tools": {
+      "get": {
+        "description": "Get tools",
+        "parameters": [
+          
+        ],
+        "responses": {
+          "200": {
+            "description": "The tools stored",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/ToolResponse"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "tags": [
+          "Catalog"
+        ]
+      }
+    },
+    "/manager/v1/clients": {
+      "get": {
+        "description": "Get all clients",
+        "parameters": [
+          
+        ],
+        "responses": {
+          "200": {
+            "description": "The clients found",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/ClientResponse"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "tags": [
+          "Client"
+        ]
+      },
+      "post": {
+        "description": "Add a client",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ClientPostRequest"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "The client was added",
+            "schema": {
+              "$ref": "#/definitions/ClientResponse"
+            }
+          }
+        },
+        "tags": [
+          "Client"
+        ]
+      }
+    },
+    "/manager/v1/clients/{clientId}": {
+      "delete": {
+        "description": "Delete a client by id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "clientId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The client was deleted",
+            "schema": {
+              
+            }
+          }
+        },
+        "tags": [
+          "Client"
+        ]
+      },
+      "get": {
+        "description": "Get a client by id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "clientId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The client found",
+            "schema": {
+              "$ref": "#/definitions/ClientResponse"
+            }
+          }
+        },
+        "tags": [
+          "Client"
+        ]
+      },
+      "put": {
+        "description": "Update a client by id",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ClientUpdateRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "clientId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The client updated",
+            "schema": {
+              "$ref": "#/definitions/ClientResponse"
+            }
+          }
+        },
+        "tags": [
+          "Client"
+        ]
+      }
+    },
+    "/manager/v1/clients/{clientId}/projects": {
+      "get": {
+        "description": "Get all projects by clientId",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "clientId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The projects found by specific client",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/ProjectResponse"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "tags": [
+          "Client"
+        ]
+      },
+      "post": {
+        "description": "Add a project for a specific client",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProjectPostRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "clientId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The projects found by specific client",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/ProjectResponse"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "tags": [
+          "Client"
+        ]
+      }
+    },
+    "/manager/v1/clients/{clientId}/projects/{projectId}": {
+      "delete": {
+        "description": "Delete a specific project for a specific client",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "clientId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The project was deleted",
+            "schema": {
+              
+            }
+          }
+        },
+        "tags": [
+          "Client"
+        ]
+      },
+      "get": {
+        "description": "Get a specific project for a specific client",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "clientId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The project found by specific client",
+            "schema": {
+              "$ref": "#/definitions/ProjectResponse"
+            }
+          }
+        },
+        "tags": [
+          "Client"
+        ]
+      },
+      "put": {
+        "description": "Update a specific project for a specific client",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProjectUpdateRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "clientId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The project updated",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/ProjectResponse"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "tags": [
+          "Client"
+        ]
+      }
+    },
+    "/manager/v1/clients/{clientId}/projects/{projectId}/profiles": {
+      "get": {
+        "description": "Get all required profiles for a specific project from specific client",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "clientId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          
+        },
+        "tags": [
+          "Client"
+        ]
+      },
+      "post": {
+        "deprecated": true,
+        "description": "Add a required profile for a specific project from specific client",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "clientId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          
+        },
+        "tags": [
+          "Client"
+        ]
+      }
+    },
+    "/manager/v1/clients/{clientId}/projects/{projectId}/profiles/{profileId}": {
+      "delete": {
+        "deprecated": true,
+        "description": "Delete a required profile for a specific project from specific client",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "clientId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The project's profile was deleted",
+            "schema": {
+              
+            }
+          }
+        },
+        "tags": [
+          "Client"
+        ]
+      },
+      "get": {
+        "deprecated": true,
+        "description": "Get a required profile for a specific project from specific client",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "clientId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          
+        },
+        "tags": [
+          "Client"
+        ]
+      },
+      "put": {
+        "deprecated": true,
+        "description": "Update a required profile for a specific project from specific client",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "clientId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          
+        },
+        "tags": [
+          "Client"
+        ]
+      }
+    },
+    "/manager/v1/profiles": {
+      "get": {
+        "description": "Get all profiles",
+        "parameters": [
+          
+        ],
+        "responses": {
+          "200": {
+            "description": "The profiles found",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/ProfileResponse"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "tags": [
+          "Profile"
+        ]
+      },
+      "post": {
+        "description": "Store a profile",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProfilePostRequest"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "The profile stored",
+            "schema": {
+              "$ref": "#/definitions/ProfileResponse"
+            }
+          }
+        },
+        "tags": [
+          "Profile"
+        ]
+      }
+    },
+    "/manager/v1/profiles/{profileId}": {
+      "delete": {
+        "description": "Delete profile by Id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The profile was deleted",
+            "schema": {
+              
+            }
+          }
+        },
+        "tags": [
+          "Profile"
+        ]
+      },
+      "get": {
+        "description": "Get a profile by Id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The profile found",
+            "schema": {
+              "$ref": "#/definitions/ProfileResponse"
+            }
+          }
+        },
+        "tags": [
+          "Profile"
+        ]
+      },
+      "put": {
+        "description": "Update a profile by Id",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProfileUpdateRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The profile updated",
+            "schema": {
+              "$ref": "#/definitions/ProfileResponse"
+            }
+          }
+        },
+        "tags": [
+          "Profile"
+        ]
+      }
+    },
+    "/manager/v1/profiles/{profileId}/certifications": {
+      "post": {
+        "description": "Add certification for a specific profile",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProfileCertificationPostRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "The certification was added",
+            "schema": {
+              "$ref": "#/definitions/ProfileCertificationResponse"
+            }
+          }
+        },
+        "tags": [
+          "Profile"
+        ]
+      }
+    },
+    "/manager/v1/profiles/{profileId}/certifications/{certificationId}": {
+      "delete": {
+        "description": "Delete a certification for a specific profile",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "certificationId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The certification was deleted",
+            "schema": {
+              
+            }
+          }
+        },
+        "tags": [
+          "Profile"
+        ]
+      }
+    },
+    "/manager/v1/profiles/{profileId}/courses": {
+      "post": {
+        "description": "Add a new course for a specific profile",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProfileCoursePostRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "The course was added",
+            "schema": {
+              "$ref": "#/definitions/ProfileCourseResponse"
+            }
+          }
+        },
+        "tags": [
+          "Profile"
+        ]
+      }
+    },
+    "/manager/v1/profiles/{profileId}/courses/{courseId}": {
+      "delete": {
+        "description": "Delete a course for a specific profile",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "courseId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The course was deleted",
+            "schema": {
+              
+            }
+          }
+        },
+        "tags": [
+          "Profile"
+        ]
+      }
+    },
+    "/manager/v1/profiles/{profileId}/frameworks": {
+      "post": {
+        "description": "Add a framework for a specific profile",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProfileFrameworkPostRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "The framework was added",
+            "schema": {
+              "$ref": "#/definitions/ProfileFrameworkResponse"
+            }
+          }
+        },
+        "tags": [
+          "Profile"
+        ]
+      }
+    },
+    "/manager/v1/profiles/{profileId}/frameworks/{frameworkId}": {
+      "delete": {
+        "description": "Delete a framework for a specific profile",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "frameworkId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The framework was deleted",
+            "schema": {
+              
+            }
+          }
+        },
+        "tags": [
+          "Profile"
+        ]
+      }
+    },
+    "/manager/v1/profiles/{profileId}/jobs": {
+      "post": {
+        "description": "Add a job for a specific profile",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProfileJobPostRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "The job was added",
+            "schema": {
+              "$ref": "#/definitions/ProfileJobResponse"
+            }
+          }
+        },
+        "tags": [
+          "Profile"
+        ]
+      }
+    },
+    "/manager/v1/profiles/{profileId}/jobs/{jobId}": {
+      "delete": {
+        "description": "Delete a job for a specific profile",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "jobId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The job was deleted",
+            "schema": {
+              
+            }
+          }
+        },
+        "tags": [
+          "Profile"
+        ]
+      }
+    },
+    "/manager/v1/profiles/{profileId}/programmingLanguages": {
+      "post": {
+        "description": "Add programming language for a specific profile",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProfileProgrammingLanguagePostRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "The programming language was added",
+            "schema": {
+              "$ref": "#/definitions/ProfileProgrammingLanguageResponse"
+            }
+          }
+        },
+        "tags": [
+          "Profile"
+        ]
+      }
+    },
+    "/manager/v1/profiles/{profileId}/programmingLanguages/{programmingLanguageId}": {
+      "delete": {
+        "description": "Delete a programming language for a specific profile",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "programmingLanguageId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The programming language was deleted",
+            "schema": {
+              
+            }
+          }
+        },
+        "tags": [
+          "Profile"
+        ]
+      }
+    },
+    "/manager/v1/profiles/{profileId}/studyLevels": {
+      "post": {
+        "description": "Add a study level for a specific profile",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProfileStudyLevelPostRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "The study level was added",
+            "schema": {
+              "$ref": "#/definitions/ProfileStudyLevelResponse"
+            }
+          }
+        },
+        "tags": [
+          "Profile"
+        ]
+      }
+    },
+    "/manager/v1/profiles/{profileId}/studyLevels/{studyLevelId}": {
+      "delete": {
+        "description": "Delete a study level for a specific profile",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "studyLevelId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The study level was deleted",
+            "schema": {
+              
+            }
+          }
+        },
+        "tags": [
+          "Profile"
+        ]
+      }
+    },
+    "/manager/v1/profiles/{profileId}/tools": {
+      "post": {
+        "description": "Add a tool for a specific profile",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProfileToolPostRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "The tool was added",
+            "schema": {
+              "$ref": "#/definitions/ProfileToolResponse"
+            }
+          }
+        },
+        "tags": [
+          "Profile"
+        ]
+      }
+    },
+    "/manager/v1/profiles/{profileId}/tools/{toolId}": {
+      "delete": {
+        "description": "Delete a tool for a specific profile",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "toolId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The tool was deleted",
+            "schema": {
+              
+            }
+          }
+        },
+        "tags": [
+          "Profile"
+        ]
+      }
+    }
+  },
+  "swagger": "2.0.0"
+}

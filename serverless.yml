@@ -1,0 +1,691 @@
+service: profile-matcher
+
+frameworkVersion: ">=1.1.0 <2.0.0"
+
+plugins:
+  - serverless-python-requirements
+
+custom:
+  pythonRequirements:
+    noDeploy:
+      - pytest
+      - boto3
+      - botocore
+      - coverage
+      - flake8
+      - black
+      - Flask
+      - pyyaml
+
+package:
+  exclude:
+    - node_modules/**
+    - .idea/**
+    - .requirements/**
+    - env/**
+    - README.md
+    - package.json
+    - package-lock.json
+    - requirements.txt
+    - .gitignore
+    - .gitlab-ci.yml
+    - .git/**
+    - .pytest_cache/**
+    - .venv/**
+    - .vscode/**
+    - dynamodb_data/**
+    - coverage_html
+    - test
+    - infrastructure
+    - docs
+    - dynamodb_data
+    - flask_src
+    
+provider:
+  name: aws
+  runtime: python3.8
+  region: us-east-2
+  environment:
+    REGION: "${opt:region, self:provider.region}"
+    DYNAMODB_TABLE_PROFILES: ${self:service}-${opt:stage, self:provider.stage}-profiles
+    DYNAMODB_TABLE_PROGRAMMING_LANGUAGES: ${self:service}-${opt:stage, self:provider.stage}-programming-languages
+    DYNAMODB_TABLE_FRAMEWORKS: ${self:service}-${opt:stage, self:provider.stage}-frameworks
+    DYNAMODB_TABLE_LIBRARIES: ${self:service}-${opt:stage, self:provider.stage}-libraries
+    DYNAMODB_TABLE_COURSES: ${self:service}-${opt:stage, self:provider.stage}-courses
+    DYNAMODB_TABLE_TOOLS: ${self:service}-${opt:stage, self:provider.stage}-tools
+    DYNAMODB_TABLE_CERTIFICATIONS: ${self:service}-${opt:stage, self:provider.stage}-certifications
+    DYNAMODB_TABLE_CLIENTS: ${self:service}-${opt:stage, self:provider.stage}-clients
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:CreateTable 
+        - dynamodb:UpdateTable
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+        - dynamodb:DescribeTable
+      Resource: 
+        - "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.DYNAMODB_TABLE_PROFILES}"
+        - "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.DYNAMODB_TABLE_CLIENTS}"
+        - "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.DYNAMODB_TABLE_PROGRAMMING_LANGUAGES}"
+        - "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.DYNAMODB_TABLE_FRAMEWORKS}"
+        - "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.DYNAMODB_TABLE_LIBRARIES}"        
+        - "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.DYNAMODB_TABLE_CERTIFICATIONS}"
+        - "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.DYNAMODB_TABLE_COURSES}"
+        - "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.DYNAMODB_TABLE_TOOLS}"
+
+functions:
+  profiles-list:
+    handler: src/modules/profiles/handler/profile.get_all
+    events:
+      - http:
+          path: manager/v1/profiles
+          method: get
+          cors: true
+
+  profiles-add:
+    handler: src/modules/profiles/handler/profile.add
+    events:
+      - http:
+          path: manager/v1/profiles
+          method: post
+          cors: true
+
+  profiles-get-by-id:
+    handler: src/modules/profiles/handler/profile.get_by_id
+    events:
+      - http:
+          path: manager/v1/profiles/{profileId}
+          method: get
+          cors: true
+          request:
+            parameters: 
+              paths:
+                profileId: true
+
+  profiles-update:
+    handler: src/modules/profiles/controller/profile.update_profile
+    events:
+      - http:
+          path: manager/v1/profiles/{profileId}
+          method: put
+          cors: true
+          # integration: lambda
+          request:
+            parameters: 
+              paths:
+                profileId: true
+
+  profiles-delete:
+    handler: src/modules/profiles/controller/profile.delete_profile
+    events:
+      - http:
+          path: manager/v1/profiles/{profileId}
+          method: delete
+          cors: true
+          # integration: lambda
+          request:
+            parameters: 
+              paths:
+                profileId: true
+
+  profiles-add-programming-language:
+    handler: src/modules/profiles/handler/profile.add_programming_language
+    events:
+      - http:
+          path: manager/v1/profiles/{profileId}/programmingLanguages
+          method: post
+          cors: true
+          request:
+            parameters: 
+              paths:
+                profileId: true
+
+  profiles-delete-programming-language:
+    handler: src/modules/profiles/controller/profile.delete_programming_language
+    events:
+      - http:
+          path: manager/v1/profiles/{profileId}/programmingLanguages/{programmingLanguageId}
+          method: delete
+          cors: true
+          request:
+            parameters: 
+              paths:
+                profileId: true
+                programmingLanguageId: true
+
+  profiles-add-course:
+    handler: src/modules/profiles/handler/profile.add_course
+    events:
+      - http:
+          path: manager/v1/profiles/{profileId}/courses
+          method: post
+          cors: true
+          request:
+            parameters: 
+              paths:
+                profileId: true
+
+  profiles-delete-course:
+    handler: src/modules/profiles/controller/profile.delete_course
+    events:
+      - http:
+          path: manager/v1/profiles/{profileId}/courses/{courseId}
+          method: delete
+          cors: true
+          request:
+            parameters: 
+              paths:
+                profileId: true
+                courseId: true
+
+  profiles-add-certification:
+    handler: src/modules/profiles/controller/profile.add_certification
+    events:
+      - http:
+          path: manager/v1/profiles/{profileId}/certifications
+          method: post
+          cors: true
+          request:
+            parameters: 
+              paths:
+                profileId: true
+
+  profiles-delete-certification:
+    handler: src/modules/profiles/controller/profile.delete_certification
+    events:
+      - http:
+          path: manager/v1/profiles/{profileId}/certifications/{certificationId}
+          method: delete
+          cors: true
+          request:
+            parameters: 
+              paths:
+                profileId: true
+                certificationId: true
+
+  profiles-add-tool:
+    handler: src/modules/profiles/controller/profile.add_tool
+    events:
+      - http:
+          path: manager/v1/profiles/{profileId}/tools
+          method: post
+          cors: true
+          request:
+            parameters: 
+              paths:
+                profileId: true
+  
+  profiles-delete-tool:
+    handler: src/modules/profiles/controller/profile.delete_tool
+    events:
+      - http:
+          path: manager/v1/profiles/{profileId}/tools/{toolId}
+          method: delete
+          cors: true
+          request:
+            parameters: 
+              paths:
+                profileId: true
+                toolId: true
+
+  profiles-add-framework:
+    handler: src/modules/profiles/handler/profile.add_framework
+    events:
+      - http:
+          path: manager/v1/profiles/{profileId}/frameworks
+          method: post
+          cors: true
+          request:
+            parameters: 
+              paths:
+                profileId: true
+
+  profiles-delete-framework:
+    handler: src/modules/profiles/controller/profile.delete_framework
+    events:
+      - http:
+          path: manager/v1/profiles/{profileId}/frameworks/{frameworkId}
+          method: delete
+          cors: true
+          request:
+            parameters: 
+              paths:
+                profileId: true
+                frameworkId: true
+
+  profiles-add-job:
+    handler: src/modules/profiles/handler/profile.add_job
+    events:
+      - http:
+          path: manager/v1/profiles/{profileId}/jobs
+          method: post
+          cors: true
+          request:
+            parameters: 
+              paths:
+                profileId: true
+
+  profiles-delete-job:
+    handler: src/modules/profiles/controller/profile.delete_job
+    events:
+      - http:
+          path: manager/v1/profiles/{profileId}/jobs/{jobId}
+          method: delete
+          cors: true
+          request:
+            parameters: 
+              paths:
+                profileId: true
+                jobId: true
+  
+  profiles-add-study-level:
+    handler: src/modules/profiles/controller/profile.add_study_level
+    events:
+      - http:
+          path: manager/v1/profiles/{profileId}/studyLevels
+          method: post
+          cors: true
+          request:
+            parameters: 
+              paths:
+                profileId: true
+
+  profiles-delete-study-level:
+    handler: src/modules/profiles/controller/profile.delete_study_level
+    events:
+      - http:
+          path: manager/v1/profiles/{profileId}/studyLevels/{studyLevelId}
+          method: delete
+          cors: true
+          request:
+            parameters: 
+              paths:
+                profileId: true
+                studyLevelId: true
+
+  clients-list:
+    handler: src/modules/clients/controller/client.get_clients
+    events:
+      - http:
+          path: manager/v1/clients
+          method: get
+          cors: true    
+
+  clients-add:
+    handler: src/modules/clients/controller/client.create_client
+    events:
+      - http:
+          path: manager/v1/clients
+          method: post
+          cors: true                
+
+  clients-get-by-id:
+    handler: src/modules/clients/controller/client.get_by_id
+    events:
+      - http:
+          path: manager/v1/clients/{clientId}
+          method: get
+          cors: true
+          request:
+            parameters: 
+              paths:
+                clientId: true
+
+  clients-update:
+    handler: src/modules/clients/controller/client.update_client
+    events:
+      - http:
+          path: manager/v1/clients/{clientId}
+          method: put
+          cors: true
+          request:
+            parameters: 
+              paths:
+                clientId: true
+
+  clients-delete:
+    handler: src/modules/clients/controller/client.delete_client
+    events:
+      - http:
+          path: manager/v1/clients/{clientId}
+          method: delete
+          cors: true
+          request:
+            parameters: 
+              paths:
+                clientId: true
+
+  clients-get-projects:
+    handler: src/modules/clients/handler/client.get_projects
+    events:
+      - http:
+          path: manager/v1/clients/{clientId}/projects
+          method: get
+          cors: true
+          request:
+            parameters: 
+              paths:
+                clientId: true
+
+  clients-add-project:
+    handler: src/modules/clients/controller/client.add_project
+    events:
+      - http:
+          path: manager/v1/clients/{clientId}/projects
+          method: post
+          cors: true
+          request:
+            parameters: 
+              paths:
+                clientId: true
+
+  clients-get-project-by-id:
+    handler: src/modules/clients/controller/client.get_project_by_id
+    events:
+      - http:
+          path: manager/v1/clients/{clientId}/projects/{projectId}
+          method: get
+          cors: true
+          request:
+            parameters: 
+              paths:
+                clientId: true
+                projectId: true
+
+  clients-update-project:
+    handler: src/modules/profiles/controller/client.update_project
+    events:
+      - http:
+          path: manager/v1/clients/{clientId}/projects/{projectId}
+          method: put
+          cors: true
+          request:
+            parameters: 
+              paths:
+                clientId: true
+                projectId: true
+
+  clients-delete-project:
+    handler: src/modules/clients/controller/client.delete_project
+    events:
+      - http:
+          path: manager/v1/clients/{clientId}/projects/{projectId}
+          method: delete
+          cors: true
+          request:
+            parameters: 
+              paths:
+                clientId: true
+                projectId: true
+
+  clients-project-get-profiles:
+    handler: src/modules/clients/controller/project.get_profiles
+    events:
+      - http:
+          path: manager/v1/clients/{clientId}/projects/{projectId}/profiles
+          method: get
+          cors: true
+          request:
+            parameters: 
+              paths:
+                clientId: true
+                projectId: true
+
+  clients-project-add-profile:
+    handler: src/modules/clients/controller/project.add_profile
+    events:
+      - http:
+          path: manager/v1/clients/{clientId}/projects/{projectId}/profiles
+          method: post
+          cors: true
+          request:
+            parameters: 
+              paths:
+                clientId: true
+                projectId: true
+
+  clients-project-get-profile-by-id:
+    handler: src/modules/clients/controller/project.get_profile_by_id
+    events:
+      - http:
+          path: manager/v1/clients/{clientId}/projects/{projectId}/profiles/{profileId}
+          method: get
+          cors: true
+          request:
+            parameters: 
+              paths:
+                clientId: true
+                projectId: true
+                profileId: true
+
+  clients-project-update-profile-by-id:
+    handler: src/modules/clients/controller/project.update_profile_by_id
+    events:
+      - http:
+          path: manager/v1/clients/{clientId}/projects/{projectId}/profiles/{profileId}
+          method: put
+          cors: true
+          request:
+            parameters: 
+              paths:
+                clientId: true
+                projectId: true
+                profileId: true
+
+  clients-project-delete-profile-by-id:
+    handler: src/modules/clients/controller/project.delete_profile_by_id
+    events:
+      - http:
+          path: manager/v1/clients/{clientId}/projects/{projectId}/profiles/{profileId}
+          method: delete
+          cors: true
+          request:
+            parameters: 
+              paths:
+                clientId: true
+                projectId: true
+                profileId: true
+
+  catalogs-programming-languages-get-all:
+    handler: src/modules/catalogs/handler/programming_language.get_programming_languages
+    events:
+      - http:
+          path: manager/v1/catalogs/programmingLanguages
+          method: get
+          cors: true
+
+  catalogs-frameworks-get-all:
+    handler: src/modules/catalogs/handler/framework.get_frameworks
+    events:
+      - http:
+          path: manager/v1/catalogs/frameworks
+          method: get
+          cors: true
+
+  catalogs-libraries-get-all:
+    handler: src/modules/catalogs/handler/library.get_libraries
+    events:
+      - http:
+          path: manager/v1/catalogs/libraries
+          method: get
+          cors: true
+
+  catalogs-certifications-get-all:
+    handler: src/modules/catalogs/handler/certification.get_certifications
+    events:
+      - http:
+          path: manager/v1/catalogs/certifications
+          method: get
+          cors: true
+
+  catalogs-courses-get-all:
+    handler: src/modules/catalogs/handler/course.get_courses
+    events:
+      - http:
+          path: manager/v1/catalogs/courses
+          method: get
+          cors: true
+
+  catalogs-tools-get-all:
+    handler: src/modules/catalogs/handler/tool.get_tools
+    events:
+      - http:
+          path: manager/v1/catalogs/tools
+          method: get
+          cors: true
+
+  scripts-seeders:
+    handler: scripts/seeders.set_seeders
+    timeout: 900
+
+resources:
+  Resources:
+    GatewayResponseDefault4XX:
+      Type: 'AWS::ApiGateway::GatewayResponse'
+      Properties:
+          ResponseParameters:
+            gatewayresponse.header.Access-Control-Allow-Origin: "'*'"
+            gatewayresponse.header.Access-Control-Allow-Headers: "'*'"
+          ResponseType: DEFAULT_4XX
+          RestApiId:
+            Ref: 'ApiGatewayRestApi'
+
+    ProfilesDynamoDbTable:
+      Type: 'AWS::DynamoDB::Table'
+      # DeletionPolicy: Retain
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: id
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 5
+          WriteCapacityUnits: 5
+        TableName: ${self:provider.environment.DYNAMODB_TABLE_PROFILES}
+
+    ProgrammingLanguagesDynamoDbTable:
+      Type: 'AWS::DynamoDB::Table'
+      # DeletionPolicy: Retain
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: key
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: key
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 5
+          WriteCapacityUnits: 5
+        TableName: ${self:provider.environment.DYNAMODB_TABLE_PROGRAMMING_LANGUAGES}
+
+    FrameworksDynamoDbTable:
+      Type: 'AWS::DynamoDB::Table'
+      # DeletionPolicy: Retain
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: key
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: key
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 5
+          WriteCapacityUnits: 5
+        TableName: ${self:provider.environment.DYNAMODB_TABLE_FRAMEWORKS}
+
+    LibrariesDynamoDbTable:
+      Type: 'AWS::DynamoDB::Table'
+      # DeletionPolicy: Retain
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: key
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: key
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 5
+          WriteCapacityUnits: 5
+        TableName: ${self:provider.environment.DYNAMODB_TABLE_LIBRARIES}
+
+    CertificationsDynamoDbTable:
+      Type: 'AWS::DynamoDB::Table'
+      # DeletionPolicy: Retain
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: key
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: key
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 5
+          WriteCapacityUnits: 5
+        TableName: ${self:provider.environment.DYNAMODB_TABLE_CERTIFICATIONS}
+
+    CoursesDynamoDbTable:
+      Type: 'AWS::DynamoDB::Table'
+      # DeletionPolicy: Retain
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: key
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: key
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 5
+          WriteCapacityUnits: 5
+        TableName: ${self:provider.environment.DYNAMODB_TABLE_COURSES}
+
+    ToolsDynamoDbTable:
+      Type: 'AWS::DynamoDB::Table'
+      # DeletionPolicy: Retain
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: key
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: key
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 5
+          WriteCapacityUnits: 5
+        TableName: ${self:provider.environment.DYNAMODB_TABLE_TOOLS}
+
+    ClientsDynamoDbTable:
+      Type: 'AWS::DynamoDB::Table'
+      # DeletionPolicy: Retain
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: id
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 5
+          WriteCapacityUnits: 5
+        TableName: ${self:provider.environment.DYNAMODB_TABLE_CLIENTS}

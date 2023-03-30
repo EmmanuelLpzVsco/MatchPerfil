@@ -1,0 +1,10 @@
+class ProfileStatus:
+    CREATED = 1
+    VALIDATED = 2
+    FINISHED_ASSESSMENT = 3
+    IN_VALIDATION_WITH_STAFF = 4
+    AVAILABLE = 5
+    ON_HOLD = 6
+    ON_TRAINING = 7
+    ON_INTERVIEW = 8
+    ASSIGNED = 9
